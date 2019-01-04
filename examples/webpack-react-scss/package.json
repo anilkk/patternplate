@@ -3,9 +3,11 @@
   "version": "3.2.3",
   "private": true,
   "license": "MIT",
+  "main": "lib/index.js",
   "scripts": {
     "start": "concurrently \"yarn webpack -w\" \"patternplate\"",
     "build": "webpack",
+    "ts-build": "tsc",
     "pp:build": "patternplate build --out .tmp --base '/'",
     "pp:test": "patternplate-test --project . --no-build --port=1442",
     "pp:deploy": "patternplate-deploy --source .tmp --name=\"patternplate-example-webpack-react-scss\" --provider=surge"
@@ -26,7 +28,11 @@
     "@patternplate/cli": "^3.2.3",
     "@patternplate/render-react": "^3.1.1",
     "@patternplate/webpack-entry": "^3.1.1",
+    "@types/react": "^16.7.18",
+    "@types/react-bootstrap": "^0.32.15",
+    "@types/react-dom": "^16.0.11",
     "babel-loader": "8.0.0-beta.0",
+    "bootstrap": "^4.2.1",
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.7",
     "dependency-check": "^3.1.0",
@@ -34,11 +40,13 @@
     "globby": "^6.1.0",
     "node-sass": "^4.11.0",
     "raw-loader": "^0.5.1",
+    "react": "^16.6.3",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.7.0",
     "sass": "^1.15.2",
     "sass-loader": "^7.1.0",
+    "typescript": "^3.0.3",
     "webpack": "^3.8.1"
   },
-  "dependencies": {
-    "react": "16.6.3"
-  }
+  "dependencies": {}
 }

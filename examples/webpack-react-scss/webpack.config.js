@@ -34,7 +34,7 @@ module.exports = {
   },
   output: {
     path: __dirname,
-    filename: "components.bundle.js",
+    filename: "lib/index.js",
     libraryTarget: "commonjs"
   }
 };
