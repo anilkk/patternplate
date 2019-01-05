@@ -1,33 +1,31 @@
 const webpackEntry = require("@patternplate/webpack-entry");
-
+const path = require("path");
+const {TsConfigPathsPlugin} = require("awesome-typescript-loader");
 module.exports = {
   devtool: "source-map",
-  entry: webpackEntry.sync(["src/**/*.demo.js"]),
+  entry: webpackEntry.sync(["src/index.ts"]),
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"]
-            }
-          }
-        ]
+        test: /(\.tsx|\.ts)$/,
+        loader: "awesome-typescript-loader",
+        exclude: /(node_modules)/
       },
       {
-        test: /\.(c|sc)ss$/,
+        test: /\.css$/,
         use: [
           {
-            loader: "raw-loader"
+            loader: "style-loader"
           },
           {
-            loader: "sass-loader",
-            options: {
-              relativeUrls: true
-            }
-          }
+            loader: "css-loader"
+          },
+          // {
+          //   loader: "sass-loader",
+          //   options: {
+          //     relativeUrls: true
+          //   }
+          // }
         ]
       },
     ]
@@ -36,5 +34,14 @@ module.exports = {
     path: __dirname,
     filename: "lib/index.js",
     libraryTarget: "commonjs"
+  },
+  resolve: {
+    modules: [path.resolve("./node_modules")],
+    extensions: [".json", ".js", ".jsx", ".tsx", ".ts", ".css"],
+    plugins: [
+      new TsConfigPathsPlugin({
+        configFile: path.resolve(__dirname, "tsconfig.json")
+      })
+    ]
   }
 };

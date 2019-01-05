@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "concurrently \"yarn webpack -w\" \"patternplate\"",
-    "build": "webpack",
+    "build": "webpack --mode=development",
     "ts-build": "tsc",
     "pp:build": "patternplate build --out .tmp --base '/'",
     "pp:test": "patternplate-test --project . --no-build --port=1442",
@@ -31,6 +31,7 @@
     "@types/react": "^16.7.18",
     "@types/react-bootstrap": "^0.32.15",
     "@types/react-dom": "^16.0.11",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "8.0.0-beta.0",
     "bootstrap": "^4.2.1",
     "concurrently": "^3.5.1",
@@ -45,8 +46,10 @@
     "react-dom": "^16.7.0",
     "sass": "^1.15.2",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "typescript": "^3.0.3",
-    "webpack": "^3.8.1"
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8"
   },
   "dependencies": {}
 }
