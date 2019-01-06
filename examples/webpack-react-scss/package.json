@@ -51,5 +51,7 @@
     "webpack": "^4.12.2",
     "webpack-cli": "^3.0.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-helmet": "^5.2.0"
+  }
 }
